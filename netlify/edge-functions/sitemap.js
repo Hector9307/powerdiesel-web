@@ -7,7 +7,11 @@ export default async () => {
   let body = await res.text();
   const extra =
     "<url><loc>https://powerdiesel.pro/roadside</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>" +
-    "<url><loc>https://powerdiesel.pro/mechanic</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>";
+    "<url><loc>https://powerdiesel.pro/mechanic</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/diesel-mechanic-hialeah</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/diesel-mechanic-doral</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/diesel-mechanic-fort-lauderdale</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/diesel-mechanic-homestead</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>";
   if (body.includes("</urlset>")) {
     body = body.replace("</urlset>", extra + "</urlset>");
   }
