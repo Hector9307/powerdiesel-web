@@ -14,7 +14,15 @@ export default async () => {
     "<url><loc>https://powerdiesel.pro/diesel-mechanic-homestead</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
     "<url><loc>https://powerdiesel.pro/diesel-repair-i95-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
     "<url><loc>https://powerdiesel.pro/diesel-repair-i75-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
-    "<url><loc>https://powerdiesel.pro/diesel-repair-florida-turnpike-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>";
+    "<url><loc>https://powerdiesel.pro/diesel-repair-florida-turnpike-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/diesel-mechanic-medley</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/diesel-mechanic-miami-gardens</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/diesel-mechanic-pembroke-pines</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/diesel-repair-port-of-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/diesel-repair-port-everglades</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/heavy-duty-towing-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/semi-truck-tire-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/truck-broke-down-miami-what-to-do</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>";
   if (body.includes("</urlset>")) {
     body = body.replace("</urlset>", extra + "</urlset>");
   }
