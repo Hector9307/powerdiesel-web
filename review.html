@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Rate Your Service | Power Diesel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0d10;
+    --card:#16181d;
+    --card2:#1e2128;
+    --line:#2a2e37;
+    --text:#f2f4f7;
+    --muted:#9aa1ad;
+    --red:#e11d2a;
+    --red-dark:#b3151f;
+    --amber:#ffb400;
+    --green:#25c26e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px 16px;
+    background-image:radial-gradient(circle at 50% 0%, #1a1d24 0%, var(--bg) 55%);
+  }
+  .card{
+    width:100%;
+    max-width:460px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:34px 28px 30px;
+    text-align:center;
+    box-shadow:0 24px 60px rgba(0,0,0,.5);
+  }
+  .brand{
+    font-family:'Oswald',sans-serif;
+    font-weight:700;
+    letter-spacing:2px;
+    font-size:15px;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:6px;
+  }
+  .brand b{color:var(--red)}
+  h1{
+    font-family:'Oswald',sans-serif;
+    font-weight:600;
+    font-size:27px;
+    line-height:1.15;
+    margin:14px 0 8px;
+    text-wrap:balance;
+  }
+  .sub{color:var(--muted);font-size:14.5px;line-height:1.5;margin-bottom:22px}
+  .stars{
+    display:flex;
+    justify-content:center;
+    gap:6px;
+    margin:6px 0 4px;
+    direction:rtl;
+  }
+  .stars button{
+    background:none;border:none;cursor:pointer;
+    font-size:44px;line-height:1;color:#3a3f49;
+    transition:transform .12s ease,color .12s ease;
+    padding:2px;
+  }
+  .stars button:hover,
+  .stars button:hover ~ button{color:var(--amber)}
+  .stars button:hover{transform:scale(1.15)}
+  .stars button:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:6px}
+  .hint{font-size:12.5px;color:#6b7280;letter-spacing:.5px;text-transform:uppercase;margin-top:10px}
+
+  .panel{display:none;margin-top:8px;animation:fade .3s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+  .big-emoji{font-size:40px;margin:4px 0 10px}
+  .panel h2{font-family:'Oswald',sans-serif;font-weight:600;font-size:22px;margin-bottom:8px}
+  .panel p{color:var(--muted);font-size:14.5px;line-height:1.5;margin-bottom:18px}
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    width:100%;padding:15px 20px;border-radius:12px;border:none;cursor:pointer;
+    font-family:'Oswald',sans-serif;font-weight:600;font-size:16px;letter-spacing:.6px;
+    text-transform:uppercase;text-decoration:none;transition:filter .15s ease,transform .1s ease;
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn-google{background:#fff;color:#1a1a1a}
+  .btn-google:hover{filter:brightness(.94)}
+  .btn-red{background:var(--red);color:#fff}
+  .btn-red:hover{background:var(--red-dark)}
+  .btn-wa{background:#25d366;color:#0a2e17;margin-top:10px}
+  .btn-wa:hover{filter:brightness(.95)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line);margin-top:10px}
+  .btn-ghost:hover{color:var(--text);border-color:var(--muted)}
+
+  form{margin-top:4px;text-align:left}
+  label{display:block;font-size:12.5px;font-weight:600;color:var(--muted);margin:12px 0 5px;letter-spacing:.3px}
+  input,textarea{
+    width:100%;background:var(--card2);border:1px solid var(--line);border-radius:10px;
+    color:var(--text);font-family:inherit;font-size:15px;padding:12px 13px;transition:border-color .15s ease;
+  }
+  input:focus,textarea:focus{outline:none;border-color:var(--red)}
+  textarea{resize:vertical;min-height:88px}
+  .form-hide{position:absolute;left:-9999px}
+  .tiny{font-size:12px;color:#6b7280;text-align:center;margin-top:16px;line-height:1.5}
+  .tiny a{color:var(--muted)}
+  .footer-brand{margin-top:22px;font-size:11.5px;color:#565b66;letter-spacing:1px;text-transform:uppercase}
+  .thanks-check{font-size:46px;color:var(--green);margin-bottom:8px}
+</style>
+</head>
+<body>
+  <main class="card">
+
+    <!-- STEP 1: rating -->
+    <section id="step-rate">
+      <div class="brand">POWER <b>DIESEL</b></div>
+      <h1>How was your service?</h1>
+      <p class="sub">Your feedback keeps truckers moving. It takes 10 seconds &mdash; tap a star below.</p>
+      <div class="stars" id="stars">
+        <button type="button" aria-label="5 stars" data-v="5">&#9733;</button>
+        <button type="button" aria-label="4 stars" data-v="4">&#9733;</button>
+        <button type="button" aria-label="3 stars" data-v="3">&#9733;</button>
+        <button type="button" aria-label="2 stars" data-v="2">&#9733;</button>
+        <button type="button" aria-label="1 star"  data-v="1">&#9733;</button>
+      </div>
+      <div class="hint">Tap to rate</div>
+    </section>
+
+    <!-- STEP 2A: happy -> Google -->
+    <section id="step-google" class="panel">
+      <div class="big-emoji">&#127881;</div>
+      <h2>Thank you!</h2>
+      <p>We're glad we took care of you. Would you share it on Google? It only takes a moment and helps other truckers find us.</p>
+      <a class="btn btn-google" id="googleBtn" href="https://g.page/r/CbrnMNV4t1AnEBM/review" target="_blank" rel="noopener">
+        &#11088; Leave a Google review
+      </a>
+      <div class="tiny">You'll be taken to Google to post your review.</div>
+    </section>
+
+    <!-- STEP 2B: unhappy -> private form -->
+    <section id="step-fix" class="panel">
+      <div class="big-emoji">&#128203;</div>
+      <h2>We want to make it right</h2>
+      <p>Sorry we missed the mark. Tell us what happened and we'll follow up personally as fast as we can.</p>
+
+      <form name="powerdiesel-feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="fixForm">
+        <input type="hidden" name="form-name" value="powerdiesel-feedback">
+        <input type="hidden" name="rating" id="ratingField" value="">
+        <p class="form-hide"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+        <label for="fname">Your name</label>
+        <input id="fname" name="name" type="text" autocomplete="name" placeholder="First and last name">
+
+        <label for="fphone">Phone number</label>
+        <input id="fphone" name="phone" type="tel" autocomplete="tel" placeholder="So we can call you back">
+
+        <label for="fmsg">What went wrong?</label>
+        <textarea id="fmsg" name="message" placeholder="Tell us what happened..."></textarea>
+
+        <button type="submit" class="btn btn-red" style="margin-top:18px">Send to Power Diesel</button>
+      </form>
+
+      <a class="btn btn-wa" id="waBtn" href="#" target="_blank" rel="noopener">
+        &#128241; Or message us on WhatsApp
+      </a>
+      <a class="btn btn-ghost" href="https://g.page/r/CbrnMNV4t1AnEBM/review" target="_blank" rel="noopener">
+        Prefer to post publicly? Leave a Google review
+      </a>
+    </section>
+
+    <!-- STEP 3: form sent -->
+    <section id="step-done" class="panel">
+      <div class="thanks-check">&#10003;</div>
+      <h2>Message sent</h2>
+      <p>Thank you for telling us. Someone from Power Diesel will reach out to you shortly to make this right.</p>
+    </section>
+
+    <div class="footer-brand">24/7 Mobile Diesel Repair &middot; Miami</div>
+  </main>
+
+<script>
+  var GOOGLE_URL = "https://g.page/r/CbrnMNV4t1AnEBM/review";
+  var WA_NUMBER  = "17863957263";
+
+  var stepRate = document.getElementById('step-rate');
+  var stepGoogle = document.getElementById('step-google');
+  var stepFix = document.getElementById('step-fix');
+  var stepDone = document.getElementById('step-done');
+
+  function show(el){ el.classList.add('show'); }
+  function hide(el){ el.classList.remove('show'); }
+
+  document.getElementById('stars').addEventListener('click', function(e){
+    var b = e.target.closest('button');
+    if(!b) return;
+    var v = parseInt(b.getAttribute('data-v'), 10);
+    document.getElementById('ratingField').value = v + ' stars';
+
+    hide(stepRate); stepRate.style.display = 'none';
+
+    if(v >= 4){
+      show(stepGoogle);
+      // auto-forward to Google after a short beat
+      setTimeout(function(){ window.location.href = GOOGLE_URL; }, 1200);
+    } else {
+      var msg = encodeURIComponent("Hi Power Diesel, I just rated my service " + v + "/5 and wanted to reach out about it.");
+      document.getElementById('waBtn').href = "https://wa.me/" + WA_NUMBER + "?text=" + msg;
+      show(stepFix);
+    }
+  });
+
+  // AJAX submit so the customer stays on the page (keeps the complaint private)
+  var form = document.getElementById('fixForm');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var data = new URLSearchParams(new FormData(form)).toString();
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: data
+    }).then(function(){
+      hide(stepFix); stepFix.style.display = 'none';
+      show(stepDone);
+    }).catch(function(){
+      // Fallback: if the form backend is unavailable, push them to WhatsApp
+      window.location.href = document.getElementById('waBtn').href;
+    });
+  });
+</script>
+</body>
+</html>
