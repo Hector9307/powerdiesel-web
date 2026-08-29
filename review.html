@@ -155,26 +155,21 @@
       <h2>We want to make it right</h2>
       <p>Sorry we missed the mark. Tell us what happened and we'll follow up personally as fast as we can.</p>
 
-      <form name="powerdiesel-feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="fixForm">
-        <input type="hidden" name="form-name" value="powerdiesel-feedback">
-        <input type="hidden" name="rating" id="ratingField" value="">
-        <p class="form-hide"><label>Don't fill this out: <input name="bot-field"></label></p>
+      <form id="fixForm">
+        <input type="hidden" id="ratingField" value="">
 
         <label for="fname">Your name</label>
-        <input id="fname" name="name" type="text" autocomplete="name" placeholder="First and last name">
+        <input id="fname" type="text" autocomplete="name" placeholder="First and last name">
 
         <label for="fphone">Phone number</label>
-        <input id="fphone" name="phone" type="tel" autocomplete="tel" placeholder="So we can call you back">
+        <input id="fphone" type="tel" autocomplete="tel" placeholder="So we can call you back">
 
         <label for="fmsg">What went wrong?</label>
-        <textarea id="fmsg" name="message" placeholder="Tell us what happened..."></textarea>
+        <textarea id="fmsg" placeholder="Tell us what happened..."></textarea>
 
-        <button type="submit" class="btn btn-red" style="margin-top:18px">Send to Power Diesel</button>
+        <button type="submit" class="btn btn-wa" style="margin-top:18px">&#128241; Send to Power Diesel</button>
       </form>
 
-      <a class="btn btn-wa" id="waBtn" href="#" target="_blank" rel="noopener">
-        &#128241; Or message us on WhatsApp
-      </a>
       <a class="btn btn-ghost" href="https://g.page/r/CbrnMNV4t1AnEBM/review" target="_blank" rel="noopener">
         Prefer to post publicly? Leave a Google review
       </a>
@@ -202,41 +197,44 @@
   function show(el){ el.classList.add('show'); }
   function hide(el){ el.classList.remove('show'); }
 
+  var currentRating = 0;
+
   document.getElementById('stars').addEventListener('click', function(e){
     var b = e.target.closest('button');
     if(!b) return;
-    var v = parseInt(b.getAttribute('data-v'), 10);
-    document.getElementById('ratingField').value = v + ' stars';
+    currentRating = parseInt(b.getAttribute('data-v'), 10);
 
     hide(stepRate); stepRate.style.display = 'none';
 
-    if(v >= 4){
+    if(currentRating >= 4){
       show(stepGoogle);
       // auto-forward to Google after a short beat
       setTimeout(function(){ window.location.href = GOOGLE_URL; }, 1200);
     } else {
-      var msg = encodeURIComponent("Hi Power Diesel, I just rated my service " + v + "/5 and wanted to reach out about it.");
-      document.getElementById('waBtn').href = "https://wa.me/" + WA_NUMBER + "?text=" + msg;
       show(stepFix);
     }
   });
 
-  // AJAX submit so the customer stays on the page (keeps the complaint private)
+  // Private feedback -> hand off to WhatsApp (reliable, owned, no backend).
   var form = document.getElementById('fixForm');
   form.addEventListener('submit', function(e){
     e.preventDefault();
-    var data = new URLSearchParams(new FormData(form)).toString();
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: data
-    }).then(function(){
-      hide(stepFix); stepFix.style.display = 'none';
-      show(stepDone);
-    }).catch(function(){
-      // Fallback: if the form backend is unavailable, push them to WhatsApp
-      window.location.href = document.getElementById('waBtn').href;
-    });
+    var name  = document.getElementById('fname').value.trim();
+    var phone = document.getElementById('fphone').value.trim();
+    var what  = document.getElementById('fmsg').value.trim();
+
+    var lines = [];
+    lines.push("Private feedback for Power Diesel");
+    lines.push("Rating: " + currentRating + "/5");
+    if(name)  lines.push("Name: " + name);
+    if(phone) lines.push("Phone: " + phone);
+    if(what)  lines.push("What happened: " + what);
+
+    var url = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(lines.join("\n"));
+    window.open(url, "_blank");
+
+    hide(stepFix); stepFix.style.display = 'none';
+    show(stepDone);
   });
 </script>
 </body>
