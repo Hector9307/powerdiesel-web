@@ -56,7 +56,8 @@ export default async () => {
     "<url><loc>https://powerdiesel.pro/truck-jump-start-fuel-delivery-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
     "<url><loc>https://powerdiesel.pro/mobile-diesel-repair-cost-miami</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>" +
     "<url><loc>https://powerdiesel.pro/diesel-derate-dpf-regen-explained</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>" +
-    "<url><loc>https://powerdiesel.pro/dot-inspection-checklist-truckers</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>";
+    "<url><loc>https://powerdiesel.pro/dot-inspection-checklist-truckers</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/service-areas</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>";
   if (body.includes("</urlset>")) {
     body = body.replace("</urlset>", extra + "</urlset>");
   }
