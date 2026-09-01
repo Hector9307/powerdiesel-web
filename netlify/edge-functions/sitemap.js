@@ -65,7 +65,18 @@ export default async () => {
     "<url><loc>https://powerdiesel.pro/es/reparacion-frenos-camion-miami</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>" +
     "<url><loc>https://powerdiesel.pro/es/reparacion-electrica-camion-miami</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>" +
     "<url><loc>https://powerdiesel.pro/es/grua-remolque-pesado-miami</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>" +
-    "<url><loc>https://powerdiesel.pro/es/arranque-y-combustible-camion-miami</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>";
+    "<url><loc>https://powerdiesel.pro/es/arranque-y-combustible-camion-miami</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/diesel-engine-repair-rebuild-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/diesel-diagnostics-scanning-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/diesel-tuning-ecm-programming-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/cummins-diesel-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/detroit-diesel-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/paccar-mx13-engine-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/international-maxxforce-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/duramax-diesel-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/powerstroke-diesel-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/volvo-mack-diesel-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/cat-diesel-engine-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>";
   if (body.includes("</urlset>")) {
     body = body.replace("</urlset>", extra + "</urlset>");
   }
