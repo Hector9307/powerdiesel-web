@@ -57,7 +57,15 @@ export default async () => {
     "<url><loc>https://powerdiesel.pro/mobile-diesel-repair-cost-miami</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>" +
     "<url><loc>https://powerdiesel.pro/diesel-derate-dpf-regen-explained</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>" +
     "<url><loc>https://powerdiesel.pro/dot-inspection-checklist-truckers</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>" +
-    "<url><loc>https://powerdiesel.pro/service-areas</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>";
+    "<url><loc>https://powerdiesel.pro/service-areas</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/mecanico-diesel-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/limpieza-reparacion-dpf-miami</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/inspeccion-dot-miami</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/reparacion-aire-acondicionado-camion-miami</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/reparacion-frenos-camion-miami</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/reparacion-electrica-camion-miami</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/grua-remolque-pesado-miami</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/arranque-y-combustible-camion-miami</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>";
   if (body.includes("</urlset>")) {
     body = body.replace("</urlset>", extra + "</urlset>");
   }
