@@ -333,6 +333,9 @@ window.PD_CONFIG = {
   .pdsr .info h4{font-size:14.5px;font-weight:700;color:var(--text);margin:0 0 2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .pdsr .info span{font-size:12px;color:var(--accent-2);font-weight:700}
   .pdsr .info span.cat{color:var(--muted);font-weight:600}
+  .pdsr-kind{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;padding:2px 7px;border-radius:6px;margin-right:7px;vertical-align:1px}
+  .pdsr-kind.file{background:var(--accent-soft);color:var(--accent-2);border:1px solid rgba(232,18,31,.35)}
+  .pdsr-kind.part{background:rgba(96,165,250,.14);color:#8fb7f5;border:1px solid rgba(96,165,250,.35)}
   .pdsr .pr{font-size:14px;font-weight:800;color:var(--text);flex:none}
   .pdsearch-foot{padding:10px 16px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
   .pdsearch-foot b{color:var(--text)}
@@ -713,7 +716,7 @@ const I18N={
     cart_title:"Tu carrito",cart_total:"Total",cart_checkout:"Proceder al pago",cart_secure:"🔒 Pago seguro. Tras la compra, tus archivos quedan en tu cuenta para descarga de por vida.",cart_empty:"Tu carrito está vacío. Agrega productos y págalos todos juntos.",
     files_title:"Mis archivos",files_sub:"Descarga tus archivos cuando quieras — son tuyos de por vida.",files_empty:"Aún no tienes archivos. Cómpralos en la tienda y aparecerán aquí.",files_dl:"⬇ Descargar",
     auth_free:"✓ Cuenta gratis",auth_sub:"Regístrate con tu correo o teléfono para comprar y guardar tus archivos. Es gratis — solo lo usamos para tu cuenta y avisarte de novedades y promociones.",auth_tab_up:"Crear cuenta",auth_tab_in:"Ya tengo cuenta",auth_name:"Nombre",auth_name_ph:"Tu nombre",auth_contact:"Correo electrónico",auth_contact_ph:"correo@ejemplo.com",auth_pass:"Contraseña",auth_pass_ph:"Tu contraseña (mínimo 6)",auth_title_up:"Crea tu cuenta gratis",auth_title_in:"Inicia sesión",auth_submit_up:"Crear cuenta gratis",auth_submit_in:"Entrar",auth_legal:"Al continuar aceptas recibir información y promociones de Power Diesel.",pd_loading:"Cargando productos…",pd_empty:"Aún no hay archivos publicados en esta categoría. ¡Vuelve pronto!",pd_all:"Todos",pd_soon:"La tienda se activará muy pronto.",pd_loaderr:"No se pudieron cargar los productos. Intenta recargar.",
-    search_ph:"Busca un archivo o producto…",search_hint:"Escribe el nombre, la marca o el modelo de lo que buscas.",search_none:"No encontramos nada con ese nombre. Prueba con otra palabra o escríbenos.",search_all:"Ver todos en la tienda →",search_count:"resultado(s)",search_loading:"Cargando la tienda…",
+    search_ph:"Busca un archivo o producto…",search_hint:"Escribe el nombre, la marca o el modelo de lo que buscas.",search_none:"No encontramos nada con ese nombre. Prueba con otra palabra o escríbenos.",search_all:"Ver todos en la tienda →",search_count:"resultado(s)",search_loading:"Cargando la tienda…",search_kind_file:"Archivo",search_kind_part:"Parte",
     acct_welcome:"Bienvenido",acct_free:"Crea tu cuenta gratis",acct_myfiles:"Mis archivos",acct_signout:"Cerrar sesión",acct_create:"Crear cuenta / Iniciar sesión",acct_my:"Mi cuenta",
     add:"Agregar",incart:"En carrito",owned:"Comprado",ships:"🚚 Envío",multibrand:"Multi-marca",
     t_added:"Agregado al carrito 🛒",t_empty:"Tu carrito está vacío",t_need:"Crea tu cuenta gratis para continuar",t_welcome:"¡Cuenta lista! Bienvenido a Power Diesel 🔥",t_signout:"Sesión cerrada",t_dl:"La descarga real se activa al conectar la tienda 📥",t_contact:"¡Gracias! El formulario se conectará al publicar la página.",
@@ -751,7 +754,7 @@ const I18N={
     cart_title:"Your cart",cart_total:"Total",cart_checkout:"Proceed to checkout",cart_secure:"🔒 Secure payment. After purchase, your files stay in your account for lifetime download.",cart_empty:"Your cart is empty. Add products and check out all at once.",
     files_title:"My files",files_sub:"Download your files anytime — they're yours for life.",files_empty:"You don't have files yet. Buy them in the store and they'll appear here.",files_dl:"⬇ Download",
     auth_free:"✓ Free account",auth_sub:"Sign up with your email or phone to buy and save your files. It's free — we only use it for your account and to tell you about news and promotions.",auth_tab_up:"Sign up",auth_tab_in:"I have an account",auth_name:"Name",auth_name_ph:"Your name",auth_contact:"Email address",auth_contact_ph:"email@example.com",auth_pass:"Password",auth_pass_ph:"Your password (min 6)",auth_title_up:"Create your free account",auth_title_in:"Sign in",auth_submit_up:"Create free account",auth_submit_in:"Sign in",auth_legal:"By continuing you agree to receive news and promotions from Power Diesel.",pd_loading:"Loading products…",pd_empty:"No files published in this category yet. Check back soon!",pd_all:"All",pd_soon:"The store will go live very soon.",pd_loaderr:"Could not load products. Please reload.",
-    search_ph:"Search for a file or product…",search_hint:"Type the name, brand or model of what you're looking for.",search_none:"We couldn't find anything by that name. Try another word or message us.",search_all:"See all in the store →",search_count:"result(s)",search_loading:"Loading the store…",
+    search_ph:"Search for a file or product…",search_hint:"Type the name, brand or model of what you're looking for.",search_none:"We couldn't find anything by that name. Try another word or message us.",search_all:"See all in the store →",search_count:"result(s)",search_loading:"Loading the store…",search_kind_file:"File",search_kind_part:"Part",
     acct_welcome:"Welcome",acct_free:"Create your free account",acct_myfiles:"My files",acct_signout:"Sign out",acct_create:"Sign up / Sign in",acct_my:"My account",
     add:"Add",incart:"In cart",owned:"Owned",ships:"🚚 Ships",multibrand:"Multi-brand",
     t_added:"Added to cart 🛒",t_empty:"Your cart is empty",t_need:"Create your free account to continue",t_welcome:"Account ready! Welcome to Power Diesel 🔥",t_signout:"Signed out",t_dl:"Real download activates when the store is connected 📥",t_contact:"Thanks! The form will connect when the page is published.",
@@ -946,7 +949,7 @@ function onPCat(c){ pCat=c; pBrand='Todas'; pModel='Todos'; renderPCats(); rende
 function onPBrand(v){ pBrand=v; pModel='Todos'; renderPModelSel(); renderParts(); }
 function clearPFilters(){ pBrand='Todas'; pModel='Todos'; renderPBrandSel(); renderPModelSel(); renderParts(); }
 function renderParts(){
-  const list=PARTS.filter(p=>(pCat==='Todos'||p.cat===pCat)&&(pBrand==='Todas'||p.brand===pBrand)&&(pModel==='Todos'||p.model===pModel));
+  const list=PARTS.filter(p=>(pCat==='Todos'||p.cat===pCat)&&(pBrand==='Todas'||p.brand===pBrand)&&(pModel==='Todos'||p.model===pModel)&&pdPartMatch(p,partSearchTerm));
   document.getElementById('pClearFbtn').style.display=(pBrand!=='Todas'||pModel!=='Todos')?'inline-block':'none';
   document.getElementById('pResCount').textContent=list.length?(list.length+' '+plural(list.length,'u_parts')):'';
   document.getElementById('pNoResults').style.display=list.length?'none':'block';
@@ -955,13 +958,49 @@ function renderParts(){
     const btn=inCart
       ? `<button class="add in" onclick="removeFromCart('${p.id}')"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>${t('incart')}</button>`
       : `<button class="add" onclick="addToCart('${p.id}')"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/></svg>${t('add')}</button>`;
-    return `<div class="card"><div class="top" style="background-image:url('${partImg(p)}')"><span class="tag">${pcatLabel(p.cat)}</span></div>
+    return `<div class="card" data-pid="${esc(p.id)}"><div class="top" style="background-image:url('${partImg(p)}')"><span class="tag">${pcatLabel(p.cat)}</span></div>
       <div class="body"><h3>${esc(tt(p.title))}</h3>
       <div class="meta-line">${p.brand} · ${p.model}<span class="ship">${t('ships')}</span></div>
       <div class="desc">${esc(tt(p.desc))}</div>
       <div class="row"><div class="price">${money(p.price)}</div>${btn}</div></div></div>`;
   }).join('');
 }
+
+// ---- Parts quick-search (hardcoded PARTS catalog) ----
+var partSearchTerm='';
+function pdNormG(s){ return (s==null?'':String(s)).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); }
+function pdPartHay(p){
+  var arr=[p.cat, pcatLabel(p.cat), p.brand, p.model, p.type];
+  if(p.title&&typeof p.title==='object'){ arr.push(p.title.es,p.title.en); } else { arr.push(p.title); }
+  if(p.desc&&typeof p.desc==='object'){ arr.push(p.desc.es,p.desc.en); } else { arr.push(p.desc); }
+  return pdNormG(arr.filter(function(x){return x!=null&&x!=='';}).join('  '));
+}
+function pdPartMatch(p,term){ var tq=pdNormG(term).trim(); if(!tq) return true; var hay=pdPartHay(p); return tq.split(/\s+/).every(function(w){return hay.indexOf(w)>=0;}); }
+window.pdPartMatches=function(term){
+  var tq=pdNormG(term).trim(); if(!tq) return [];
+  return PARTS.filter(function(p){return pdPartMatch(p,term);}).slice(0,12).map(function(p){
+    return { id:p.id, title:tt(p.title)||'', category:pcatLabel(p.cat), meta:[p.brand,p.model].filter(Boolean).join(' · '), img:partImg(p), price:money(p.price), kind:'part' };
+  });
+};
+window.pdPartCount=function(term){ var tq=pdNormG(term).trim(); if(!tq) return 0; return PARTS.filter(function(p){return pdPartMatch(p,term);}).length; };
+window.pdPartApplyAll=function(term){
+  partSearchTerm=term||''; pCat='Todos'; pBrand='Todas'; pModel='Todos';
+  if(typeof window.pdShowApartado==='function') window.pdShowApartado('partes');
+  renderPCats(); renderPBrandSel(); renderPModelSel(); renderParts();
+  var s=document.getElementById('partes'); if(s) setTimeout(function(){ s.scrollIntoView({behavior:'smooth',block:'start'}); },70);
+};
+window.pdPartClearFilter=function(){ if(partSearchTerm){ partSearchTerm=''; renderParts(); } };
+window.pdPartGoto=function(id){
+  partSearchTerm=''; pCat='Todos'; pBrand='Todas'; pModel='Todos';
+  if(typeof window.pdShowApartado==='function') window.pdShowApartado('partes');
+  renderPCats(); renderPBrandSel(); renderPModelSel(); renderParts();
+  setTimeout(function(){
+    var sel=(window.CSS&&CSS.escape)?CSS.escape(id):String(id).replace(/"/g,'\\"');
+    var card=document.querySelector('#partsGrid .card[data-pid="'+sel+'"]');
+    if(card){ card.scrollIntoView({behavior:'smooth',block:'center'}); card.classList.add('pd-hl'); setTimeout(function(){card.classList.remove('pd-hl');},2400); }
+    else { var s=document.getElementById('partes'); if(s) s.scrollIntoView({behavior:'smooth',block:'start'}); }
+  },130);
+};
 
 /* ---- cart ---- */
 function addToCart(id){ const p=findItem(id); if(!p||cart.some(i=>i.id===id))return; cart.push(p); updateCart(); renderProducts(); renderParts(); toast(t('t_added')); }
@@ -1399,9 +1438,12 @@ updateCart(); applyLang();
     var term=input.value.trim();
     active=-1;
     if(!term){ renderHint(); return; }
-    if(typeof window.pdSearchMatches!=='function'){ renderHint(); return; }
-    curMatches = window.pdSearchMatches(term) || [];
-    var total = (typeof window.pdSearchCount==='function') ? window.pdSearchCount(term) : curMatches.length;
+    var fileM = (typeof window.pdSearchMatches==='function') ? (window.pdSearchMatches(term)||[]).map(function(m){ m.kind='file'; return m; }) : [];
+    var partM = (typeof window.pdPartMatches==='function') ? (window.pdPartMatches(term)||[]) : [];
+    var fileCount = (typeof window.pdSearchCount==='function') ? window.pdSearchCount(term) : fileM.length;
+    var partCount = (typeof window.pdPartCount==='function') ? window.pdPartCount(term) : partM.length;
+    curMatches = fileM.concat(partM).slice(0,12);
+    var total = fileCount + partCount;
     if(!curMatches.length){
       results.innerHTML='<div class="pdsearch-hint">'+escH(tt('search_none'))+'</div>';
       if(foot) foot.style.display='none';
@@ -1409,31 +1451,39 @@ updateCart(); applyLang();
     }
     results.innerHTML = curMatches.map(function(m,i){
       var thumb = m.img ? ('style="background-image:url(\''+escH(m.img)+'\')"') : '';
-      var sub = m.meta ? ('<span>'+escH(m.meta)+'</span>') : ('<span class="cat">'+escH(m.category)+'</span>');
-      return '<button type="button" class="pdsr" data-i="'+i+'" data-pid="'+escH(m.id)+'">'
+      var kind = (m.kind==='part') ? 'part' : 'file';
+      var kindLbl = escH(tt(kind==='part'?'search_kind_part':'search_kind_file'));
+      var metaTxt = m.meta ? escH(m.meta) : escH(m.category);
+      var sub = '<span><span class="pdsr-kind '+kind+'">'+kindLbl+'</span>'+metaTxt+'</span>';
+      return '<button type="button" class="pdsr" data-i="'+i+'" data-pid="'+escH(m.id)+'" data-kind="'+kind+'">'
         + '<span class="thumb" '+thumb+'></span>'
         + '<span class="info"><h4>'+escH(m.title)+'</h4>'+sub+'</span>'
         + (m.price?('<span class="pr">'+escH(m.price)+'</span>'):'')
         + '</button>';
     }).join('');
     Array.prototype.forEach.call(results.querySelectorAll('.pdsr'), function(b){
-      b.addEventListener('click', function(){ pickResult(b.getAttribute('data-pid')); });
+      b.addEventListener('click', function(){ pickResult(b.getAttribute('data-pid'), b.getAttribute('data-kind')); });
     });
     if(foot){
       foot.style.display='flex';
-      foot.innerHTML = '<span><b>'+total+'</b> '+escH(tt('search_count'))+'</span>'
-        + '<button type="button" class="pdsearch-all" id="pdSearchAllBtn">'+escH(tt('search_all'))+'</button>';
-      var ab=el('pdSearchAllBtn'); if(ab) ab.addEventListener('click', applyAll);
+      var html = '<span><b>'+total+'</b> '+escH(tt('search_count'))+'</span>';
+      // "See all" only when every match is in a single store (unambiguous target)
+      if(fileCount>0 && partCount===0){ html += '<button type="button" class="pdsearch-all" id="pdSearchAllBtn" data-store="file">'+escH(tt('search_all'))+'</button>'; }
+      else if(partCount>0 && fileCount===0){ html += '<button type="button" class="pdsearch-all" id="pdSearchAllBtn" data-store="part">'+escH(tt('search_all'))+'</button>'; }
+      foot.innerHTML = html;
+      var ab=el('pdSearchAllBtn'); if(ab) ab.addEventListener('click', function(){ applyAll(ab.getAttribute('data-store')); });
     }
   }
-  function pickResult(pid){
+  function pickResult(pid, kind){
     window.pdCloseSearch();
-    if(typeof window.pdSearchGoto==='function') window.pdSearchGoto(pid);
+    if(kind==='part'){ if(typeof window.pdPartGoto==='function') window.pdPartGoto(pid); }
+    else { if(typeof window.pdSearchGoto==='function') window.pdSearchGoto(pid); }
   }
-  function applyAll(){
+  function applyAll(store){
     var term=input?input.value.trim():'';
     window.pdCloseSearch();
-    if(typeof window.pdSearchApply==='function') window.pdSearchApply(term);
+    if(store==='part'){ if(typeof window.pdPartApplyAll==='function') window.pdPartApplyAll(term); }
+    else { if(typeof window.pdSearchApply==='function') window.pdSearchApply(term); }
   }
   function setActive(n){
     var items=results?results.querySelectorAll('.pdsr'):[];
@@ -1450,8 +1500,8 @@ updateCart(); applyLang();
     if(e.key==='ArrowUp'){ e.preventDefault(); setActive(active-1); return; }
     if(e.key==='Enter'){
       e.preventDefault();
-      if(active>=0 && items[active]){ pickResult(items[active].getAttribute('data-pid')); }
-      else if(items.length && input && input.value.trim()){ applyAll(); }
+      var pick = (active>=0 && items[active]) ? items[active] : (items.length?items[0]:null);
+      if(pick){ pickResult(pick.getAttribute('data-pid'), pick.getAttribute('data-kind')); }
     }
   };
   document.addEventListener('keydown', function(e){
