@@ -76,7 +76,15 @@ export default async () => {
     "<url><loc>https://powerdiesel.pro/duramax-diesel-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
     "<url><loc>https://powerdiesel.pro/powerstroke-diesel-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
     "<url><loc>https://powerdiesel.pro/volvo-mack-diesel-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
-    "<url><loc>https://powerdiesel.pro/cat-diesel-engine-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>";
+    "<url><loc>https://powerdiesel.pro/cat-diesel-engine-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/reparacion-cummins-miami</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/reparacion-detroit-diesel-miami</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/reparacion-paccar-mx13-miami</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/reparacion-international-maxxforce-miami</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/reparacion-duramax-miami</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/reparacion-powerstroke-miami</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/reparacion-volvo-mack-miami</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/reparacion-cat-diesel-miami</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>";
   if (body.includes("</urlset>")) {
     body = body.replace("</urlset>", extra + "</urlset>");
   }
