@@ -84,7 +84,17 @@ export default async () => {
     "<url><loc>https://powerdiesel.pro/es/reparacion-duramax-miami</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>" +
     "<url><loc>https://powerdiesel.pro/es/reparacion-powerstroke-miami</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>" +
     "<url><loc>https://powerdiesel.pro/es/reparacion-volvo-mack-miami</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>" +
-    "<url><loc>https://powerdiesel.pro/es/reparacion-cat-diesel-miami</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>";
+    "<url><loc>https://powerdiesel.pro/es/reparacion-cat-diesel-miami</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/truck-transmission-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/truck-clutch-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/truck-radiator-cooling-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/truck-suspension-airbag-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/truck-preventive-maintenance-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/fleet-diesel-repair-maintenance-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/semi-trailer-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/box-truck-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/dump-truck-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/diesel-bus-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>";
   if (body.includes("</urlset>")) {
     body = body.replace("</urlset>", extra + "</urlset>");
   }
