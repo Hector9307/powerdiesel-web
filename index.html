@@ -450,7 +450,7 @@ window.PD_CONFIG = {
 </div>
 
 <!-- SECTION 1: FILE STORE -->
-<section class="section" id="tienda">
+<section class="section" id="tienda" style="display:none">
   <div class="wrap">
     <div class="sband"><span class="num">1</span><span class="kicker" style="margin-bottom:0" data-i18n="s1_k">Tienda de archivos</span></div>
     <div class="section-head">
@@ -484,7 +484,7 @@ window.PD_CONFIG = {
 </section>
 
 <!-- SECTION 3: SERVICES -->
-<section class="section services" id="servicios">
+<section class="section services" id="servicios" style="display:none">
   <div class="wrap">
     <div class="sband"><span class="num">3</span><span class="kicker" style="margin-bottom:0" data-i18n="s3_k">Asistencia en carretera & Taller</span></div>
     <div class="section-head">
@@ -1230,6 +1230,31 @@ updateCart(); applyLang();
 
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', init);
   else init();
+})();
+</script>
+
+<script>
+/* Apartados: cada tienda/servicio se muestra por separado, no mezclado. */
+(function(){
+  var A=['tienda','partes','servicios'];
+  function show(id){
+    A.forEach(function(k){var el=document.getElementById(k); if(el) el.style.display=(k===id)?'':'none';});
+    if(id){
+      var t=document.getElementById(id);
+      if(t){ setTimeout(function(){ t.scrollIntoView({behavior:'smooth',block:'start'}); },40); }
+      try{ history.replaceState(null,'','#'+id); }catch(e){}
+    }
+  }
+  window.pdShowApartado=show;
+  A.forEach(function(k){var el=document.getElementById(k); if(el) el.style.display='none';});
+  document.addEventListener('click',function(e){
+    var a=e.target.closest?e.target.closest('a[href^="#tienda"],a[href^="#partes"],a[href^="#servicios"]'):null;
+    if(!a) return;
+    var id=(a.getAttribute('href')||'').replace('#','').split('?')[0];
+    if(A.indexOf(id)>=0){ e.preventDefault(); show(id); }
+  });
+  function init(){ var h=(location.hash||'').replace('#',''); if(A.indexOf(h)>=0) show(h); }
+  if(document.readyState!=='loading') init(); else document.addEventListener('DOMContentLoaded',init);
 })();
 </script>
 </body>
