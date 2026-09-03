@@ -1002,6 +1002,28 @@ window.pdPartGoto=function(id){
   },130);
 };
 
+// ---- Deep-link: /?p=<slug> lands the visitor directly on the exact file or part ----
+function pdSlugify(s){ return (s==null?'':String(s)).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,''); }
+window.pdOpenPartBySlug=function(slug){
+  if(!slug) return false;
+  var sl=String(slug).toLowerCase(); var base=sl.replace(/-\d+$/,'');
+  var p=PARTS.find(function(x){ var s=pdSlugify(tt(x.title)); return s===sl||s===base; });
+  if(p){ window.pdPartGoto(p.id); return true; }
+  return false;
+};
+window.pdTryDeepLink=function(){
+  if(window.__pdDeepLinkDone) return;
+  var slug; try{ slug=new URLSearchParams(location.search).get('p'); }catch(e){}
+  if(!slug) return;
+  var opened=false;
+  if(typeof window.pdOpenBySlug==='function') opened=window.pdOpenBySlug(slug);
+  if(!opened && typeof window.pdOpenPartBySlug==='function') opened=window.pdOpenPartBySlug(slug);
+  if(opened){
+    window.__pdDeepLinkDone=true;
+    setTimeout(function(){ try{ var h=location.hash||'#tienda'; history.replaceState(null,'',location.pathname+h); }catch(e){} }, 600);
+  }
+};
+
 /* ---- cart ---- */
 function addToCart(id){ const p=findItem(id); if(!p||cart.some(i=>i.id===id))return; cart.push(p); updateCart(); renderProducts(); renderParts(); toast(t('t_added')); }
 function removeFromCart(id){ cart=cart.filter(i=>i.id!==id); updateCart(); renderProducts(); renderParts(); renderCartItems(); }
@@ -1170,6 +1192,7 @@ updateCart(); applyLang();
       pdProducts = r.data || [];
       await loadOwned();
       renderPDCats(); renderPDProducts();
+      if(typeof window.pdTryDeepLink==='function') setTimeout(window.pdTryDeepLink, 60);
     }catch(e){ if(grid) grid.innerHTML = note(tr('pd_loaderr')); }
   }
 
@@ -1356,6 +1379,15 @@ updateCart(); applyLang();
     if(s) setTimeout(function(){ s.scrollIntoView({behavior:'smooth',block:'start'}); }, 70);
   };
   window.pdSearchClearFilter = function(){ if(pdSearchTerm){ pdSearchTerm=''; renderPDProducts(); } };
+  // Deep-link: resolve a /archivo/<slug> style slug to the exact file and open it
+  function pdFileSlugify(s){ return (typeof pdSlugify==='function')?pdSlugify(s):(s==null?'':String(s)).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,''); }
+  window.pdOpenBySlug = function(slug){
+    if(!slug || !Array.isArray(pdProducts) || !pdProducts.length) return false;
+    var sl = String(slug).toLowerCase(); var base = sl.replace(/-\d+$/,'');
+    var p = pdProducts.find(function(x){ var s=pdFileSlugify(x.title); return s===sl || s===base; });
+    if(p){ window.pdSearchGoto(p.id); return true; }
+    return false;
+  };
   window.pdSearchGoto = function(id){
     pdSearchTerm=''; pdCat='all'; pdBrand='all';
     if(typeof window.pdShowApartado==='function') window.pdShowApartado('tienda');
@@ -1507,6 +1539,11 @@ updateCart(); applyLang();
   document.addEventListener('keydown', function(e){
     if(e.key==='Escape'){ var b=el('pdSearchBg'); if(b && b.classList.contains('open')) window.pdCloseSearch(); }
   });
+  // Fire the /?p=<slug> deep-link once everything (incl. pdShowApartado) is defined.
+  function tryDeep(){ try{ if(window.pdTryDeepLink) window.pdTryDeepLink(); }catch(e){} }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', function(){ setTimeout(tryDeep,90); });
+  else setTimeout(tryDeep,90);
+  setTimeout(tryDeep, 1600);
 })();
 </script>
 </body>
