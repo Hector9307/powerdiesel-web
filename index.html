@@ -314,6 +314,15 @@ window.PD_CONFIG = {
   .acct-menu button:hover{background:var(--panel-2)}
   .acct-menu button svg{width:17px;height:17px;color:var(--muted)}
 
+  /* ---- Real work gallery ---- */
+  .work-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+  .work-item{margin:0;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--panel);box-shadow:0 18px 44px rgba(0,0,0,.45)}
+  .work-item img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;transition:transform .35s ease}
+  .work-item:hover img{transform:scale(1.03)}
+  .work-item figcaption{padding:12px 14px;font-size:13px;font-weight:700;color:var(--muted);text-align:center;letter-spacing:.2px}
+  @media(max-width:920px){.work-gallery{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.work-gallery{grid-template-columns:1fr}}
+
   /* ---- Quick search ---- */
   .pdsearch-bg{position:fixed;inset:0;background:rgba(4,4,6,.72);backdrop-filter:blur(6px);z-index:350;display:none;align-items:flex-start;justify-content:center;padding:12vh 20px 20px}
   .pdsearch-bg.open{display:flex}
@@ -570,6 +579,14 @@ window.PD_CONFIG = {
     <h2 style="font-size:32px;margin-bottom:14px" data-i18n="ab_h">Hecho por y para gente del diésel</h2>
     <p style="color:var(--muted);font-size:16.5px" data-i18n-html="ab_p">Somos especialistas en programación y mecánica diésel. Creamos archivos de tuning y originales para todo tipo de equipo con motor diésel, ofrecemos software de diagnóstico, y respaldamos a los transportistas con asistencia en carretera y taller. Nuestra meta: <b style="color:#fff">más potencia, menos paradas y camiones siempre rodando.</b></p>
   </div>
+  <div class="wrap" style="margin-top:38px">
+    <div style="text-align:center"><span class="kicker" data-i18n="wk_k">Trabajo real</span></div>
+    <div class="work-gallery">
+      <figure class="work-item"><img src="/foto-estacion.jpg" alt="Estación de diagnóstico y programación diésel de Power Diesel" loading="lazy" width="1200" height="689"><figcaption data-i18n="wk_1">Estación de diagnóstico y programación</figcaption></figure>
+      <figure class="work-item"><img src="/foto-cabina.jpg" alt="Diagnóstico en cabina de un camión Mack con laptop conectado" loading="lazy" width="1000" height="1333"><figcaption data-i18n="wk_2">Diagnóstico en cabina, en el sitio</figcaption></figure>
+      <figure class="work-item"><img src="/foto-titan.jpg" alt="Diagnóstico de pickup diésel Nissan Titan con laptop sobre el motor" loading="lazy" width="1000" height="1333"><figcaption data-i18n="wk_3">Diagnóstico en pickups y camiones</figcaption></figure>
+    </div>
+  </div>
 </section>
 
 <!-- REVIEWS -->
@@ -702,6 +719,7 @@ const I18N={
     p2_t:"Tienda de partes",p2_p:"Sensores, inyectores, turbos y más, con envío a tu puerta.",p2_go:"Ver partes →",
     p3_t:"Asistencia & Taller",p3_p:"Road service 24/7, gomas, grúa y taller físico.",p3_go:"Ver servicios →",
     vid_kicker:"El poder por dentro",vid_cap:"Diésel de alto poder — reparación, programación y respaldo 24/7.",
+    wk_k:"Trabajo real",wk_1:"Estación de diagnóstico y programación",wk_2:"Diagnóstico en cabina, en el sitio",wk_3:"Diagnóstico en pickups y camiones",
     tr1:"Archivos probados",tr2:"Entrega inmediata",tr3:"Road service 24/7",tr4:"Soporte especializado",
     s1_k:"Tienda de archivos",s1_h:"Archivos de programación para todo motor diésel",s1_p:"Tuning, originales y software de diagnóstico. Elige tu archivo, paga seguro con tarjeta y descárgalo al instante.",s1_open:"Abrir la tienda en una pestaña nueva ↗",
     s2_k:"Tienda de partes",s2_h:"Partes y repuestos con envío a tu puerta",s2_p:"Sensores, inyectores, turbos, bombas y kits para tu motor diésel. Filtra por marca y modelo, agrega al carrito y te lo enviamos.",
@@ -740,6 +758,7 @@ const I18N={
     p2_t:"Parts store",p2_p:"Sensors, injectors, turbos and more, shipped to your door.",p2_go:"View parts →",
     p3_t:"Roadside & Shop",p3_p:"24/7 road service, tires, towing and full shop.",p3_go:"View services →",
     vid_kicker:"The power inside",vid_cap:"High-power diesel — repair, programming and 24/7 backup.",
+    wk_k:"Real work",wk_1:"Diagnostics & programming station",wk_2:"In-cab diagnostics, on site",wk_3:"Diagnostics on pickups and trucks",
     tr1:"Tested files",tr2:"Instant delivery",tr3:"24/7 road service",tr4:"Expert support",
     s1_k:"File store",s1_h:"Programming files for every diesel engine",s1_p:"Tuning, original files and diagnostic software. Pick your file, pay securely by card and download instantly.",s1_open:"Open the store in a new tab ↗",
     s2_k:"Parts store",s2_h:"Parts & spares shipped to your door",s2_p:"Sensors, injectors, turbos, pumps and kits for your diesel engine. Filter by brand and model, add to cart and we'll ship it.",
