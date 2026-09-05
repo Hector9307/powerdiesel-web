@@ -1539,6 +1539,18 @@ updateCart(); applyLang();
   document.addEventListener('keydown', function(e){
     if(e.key==='Escape'){ var b=el('pdSearchBg'); if(b && b.classList.contains('open')) window.pdCloseSearch(); }
   });
+  // Keep the hero engine video playing: browsers sometimes defer muted autoplay
+  // (background tab, iOS quirks). Nudge it on load, visibility, first interaction and scroll-into-view.
+  (function(){
+    var v=document.querySelector('video[autoplay]'); if(!v) return;
+    function nudge(){ if(v.paused){ var p=v.play(); if(p&&p.catch) p.catch(function(){}); } }
+    nudge();
+    document.addEventListener('visibilitychange', function(){ if(!document.hidden) nudge(); });
+    ['scroll','touchstart','pointerdown','keydown'].forEach(function(ev){ window.addEventListener(ev, nudge, {passive:true, once:true}); });
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) nudge(); }); }, {threshold:0.15}).observe(v);
+    }
+  })();
   // Fire the /?p=<slug> deep-link once everything (incl. pdShowApartado) is defined.
   function tryDeep(){ try{ if(window.pdTryDeepLink) window.pdTryDeepLink(); }catch(e){} }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', function(){ setTimeout(tryDeep,90); });
