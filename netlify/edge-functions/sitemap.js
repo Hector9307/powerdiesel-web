@@ -94,7 +94,46 @@ export default async () => {
     "<url><loc>https://powerdiesel.pro/semi-trailer-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
     "<url><loc>https://powerdiesel.pro/box-truck-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
     "<url><loc>https://powerdiesel.pro/dump-truck-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
-    "<url><loc>https://powerdiesel.pro/diesel-bus-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>";
+    "<url><loc>https://powerdiesel.pro/diesel-bus-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/services</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/servicios</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/mecanico-diesel-hialeah</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/mecanico-diesel-doral</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/mecanico-diesel-medley</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/mecanico-diesel-homestead</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/mecanico-diesel-kendall</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/mecanico-diesel-miami-gardens</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/mecanico-diesel-hollywood</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/mecanico-diesel-miramar</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/mecanico-diesel-pembroke-pines</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/def-scr-egr-system-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/reparacion-sistema-def-scr-egr-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/freightliner-truck-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/reparacion-freightliner-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/isuzu-hino-box-truck-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/reparacion-isuzu-hino-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/kenworth-peterbilt-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/reparacion-kenworth-peterbilt-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/diesel-pickup-truck-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/reparacion-pickup-diesel-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/sprinter-van-diesel-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/reparacion-sprinter-diesel-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/truck-check-engine-light-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/luz-check-engine-camion-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/heavy-equipment-diesel-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/reparacion-maquinaria-diesel-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/reparacion-transmision-camion-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/reparacion-embrague-camion-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/reparacion-inyectores-diesel-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/reparacion-turbo-diesel-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/mantenimiento-preventivo-camiones-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/reparacion-flotas-diesel-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/asistencia-carretera-camiones-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/reparacion-trailer-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/reparacion-llantas-camion-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/diagnostico-diesel-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/programacion-ecm-tuning-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/reparacion-reefer-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>";
   if (body.includes("</urlset>")) {
     body = body.replace("</urlset>", extra + "</urlset>");
   }
