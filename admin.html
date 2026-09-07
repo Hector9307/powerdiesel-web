@@ -198,8 +198,14 @@ window.PD_CONFIG = { SUPABASE_URL:"https://kohpsobftjrxdjtnclpx.supabase.co", SU
     return cfg.SUPABASE_ANON_KEY.indexOf('__')!==0;
   }
 
+  var lastAdminErr='';
   async function checkAdmin(email){
-    try{ var r=await sb.from('admins').select('email').eq('email',email).maybeSingle(); return !!(r.data); }catch(e){ return false; }
+    lastAdminErr='';
+    try{
+      var r=await sb.from('admins').select('email').ilike('email',email).limit(1);
+      if(r.error){ lastAdminErr=r.error.message||String(r.error); return false; }
+      return !!(r.data && r.data.length);
+    }catch(e){ lastAdminErr=(e&&e.message)||String(e); return false; }
   }
 
   async function start(){
@@ -216,7 +222,7 @@ window.PD_CONFIG = { SUPABASE_URL:"https://kohpsobftjrxdjtnclpx.supabase.co", SU
 
   async function afterLogin(user){
     var isAdmin = await checkAdmin(user.email);
-    if(!isAdmin){ msg(q('loginMsg'),'err','Esta cuenta no tiene permiso de administrador.'); await sb.auth.signOut(); return; }
+    if(!isAdmin){ msg(q('loginMsg'),'err','Esta cuenta ('+(user.email||'')+') no tiene permiso de administrador.'+(lastAdminErr?' Detalle: '+lastAdminErr:'')); await sb.auth.signOut(); return; }
     me = user;
     q('whoEmail').textContent = user.email;
     hide(q('loginView')); show(q('adminView'));
@@ -292,7 +298,7 @@ window.PD_CONFIG = { SUPABASE_URL:"https://kohpsobftjrxdjtnclpx.supabase.co", SU
           +'</tr>';
       }).join('');
       el.innerHTML='<table><thead><tr><th></th><th>Producto</th><th>Precio</th><th>Estado</th><th></th></tr></thead><tbody>'+rows+'</tbody></table>';
-      Array.prototype.forEach.call(el.querySelectorAll('[data-edit]'),function(b){ b.addEventListener('click',function(){ openForm(b.getAttribute('data-edit')); }); });
+      Array.prototype.forEach.call(el.querySelectorAll('[data-edit]'),function(b){ b.addEventListener('click',function(){ try{ openForm(b.getAttribute('data-edit')); }catch(err){ msg(q('prodMsg'),'err','No se pudo abrir el producto: '+(err.message||err)); } }); });
       Array.prototype.forEach.call(el.querySelectorAll('[data-del]'),function(b){ b.addEventListener('click',function(){ delProduct(b.getAttribute('data-del')); }); });
     }catch(e){ el.innerHTML=''; msg(q('prodMsg'),'err','No se pudieron cargar los productos: '+(e.message||'')); }
   }
@@ -307,7 +313,9 @@ window.PD_CONFIG = { SUPABASE_URL:"https://kohpsobftjrxdjtnclpx.supabase.co", SU
     q('pCat').value = editing&&editing.category?editing.category:'Tuning';
     if(![].some.call(q('pCat').options,function(o){return o.value===q('pCat').value;})) q('pCat').value='Otros';
     q('pPrice').value = editing&&editing.price_cents!=null?(editing.price_cents/100):'';
-    var sp = (editing && editing.specs) ? (typeof editing.specs==='string'?JSON.parse(editing.specs||'{}'):editing.specs) : {};
+    var sp = {};
+    try{ sp = (editing && editing.specs) ? (typeof editing.specs==='string'?JSON.parse(editing.specs||'{}'):editing.specs) : {}; }catch(e){ sp={}; }
+    if(!sp || typeof sp!=='object') sp={};
     q('pvBrand').value = sp.vehicle_brand||''; q('pvModel').value = sp.vehicle_model||'';
     q('pvEngine').value = sp.engine||''; q('pvEngineType').value = sp.engine_type||'';
     q('pvTrans').value = sp.transmission||''; q('pvVin').value = sp.vin||'';
@@ -364,7 +372,9 @@ window.PD_CONFIG = { SUPABASE_URL:"https://kohpsobftjrxdjtnclpx.supabase.co", SU
       if(q('pId').value){ res=await sb.from('products').update(rec).eq('id',q('pId').value).eq('site',cfg.SITE).select(); }
       else { rec.slug = slugify(title)+'-'+String(Date.now()).slice(-5); res=await sb.from('products').insert(rec).select(); }
       if(res.error) throw res.error;
+      if(!res.data || !res.data.length) throw new Error('El servidor no guardó el producto (sin permiso de escritura). Cierra sesión, vuelve a entrar e inténtalo de nuevo; si sigue igual, avísame.');
       q('prodModal').classList.remove('open');
+      msg(q('prodMsg'),'ok','Producto guardado.');
       loadProducts();
     }catch(err){
       msg(q('pmMsg'),'err','No se pudo guardar: '+(err.message||err));
