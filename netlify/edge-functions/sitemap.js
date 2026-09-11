@@ -38,6 +38,15 @@ export default async () => {
     "<url><loc>https://powerdiesel.pro/diesel-mechanic-dania-beach</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
     "<url><loc>https://powerdiesel.pro/diesel-mechanic-deerfield-beach</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
     "<url><loc>https://powerdiesel.pro/diesel-mechanic-cutler-bay</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/diesel-mechanic-miami-lakes</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/diesel-mechanic-florida-city</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/diesel-mechanic-miami-springs</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/diesel-mechanic-westchester</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/diesel-mechanic-the-hammocks</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/diesel-mechanic-key-largo</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/diesel-mechanic-islamorada</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/diesel-mechanic-marathon</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/diesel-mechanic-key-west</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
     "<url><loc>https://powerdiesel.pro/diesel-repair-palmetto-expressway-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
     "<url><loc>https://powerdiesel.pro/diesel-repair-dolphin-expressway-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
     "<url><loc>https://powerdiesel.pro/diesel-repair-i595-fort-lauderdale</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
