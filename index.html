@@ -221,6 +221,10 @@ window.PD_CONFIG = {
   .card .tag{position:relative;z-index:1;font-size:10px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;padding:5px 10px;border-radius:6px;background:rgba(0,0,0,.55);color:#fff;backdrop-filter:blur(4px)}
   .card .body{padding:15px 16px 17px;display:flex;flex-direction:column;flex:1}
   .card .body h3{font-size:15.5px;font-weight:700;font-family:'Inter';letter-spacing:0;line-height:1.35;min-height:42px}
+  .card .body h3 a.pd-title-link{color:inherit;text-decoration:none}
+  .card .body h3 a.pd-title-link:hover{color:var(--accent-2);text-decoration:underline}
+  .card .pd-detail-link{font-size:12.5px;color:var(--accent-2);font-weight:700;text-decoration:none;margin-top:8px;display:inline-block}
+  .card .pd-detail-link:hover{text-decoration:underline}
   .card .body .desc{font-size:13px;color:var(--muted);margin-top:6px;flex:1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
   .card .meta-line{font-size:11.5px;color:var(--accent-2);font-weight:800;letter-spacing:.4px;margin:5px 0 2px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
   .card .row{display:flex;align-items:center;justify-content:space-between;margin-top:14px;gap:10px}
@@ -1273,10 +1277,14 @@ updateCart(); applyLang();
     if(owned) btn = '<button class="add owned"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>'+tr('owned')+'</button>';
     else if(inCart) btn = '<button class="add in" data-rem="'+p.id+'"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>'+tr('incart')+'</button>';
     else btn = '<button class="add" data-add="'+p.id+'"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/></svg>'+tr('add')+'</button>';
+    var detailHref = p.slug ? ('/archivo/'+encodeURIComponent(p.slug)+'/') : null;
+    var titleHTML = detailHref ? ('<h3><a class="pd-title-link" href="'+esc(detailHref)+'">'+esc(p.title||'')+'</a></h3>') : ('<h3>'+esc(p.title||'')+'</h3>');
+    var detailLink = detailHref ? ('<a class="pd-detail-link" href="'+esc(detailHref)+'">'+(es()?'Ver ficha completa':'View full listing')+' &rarr;</a>') : '';
     return '<div class="card" data-pid="'+esc(p.id)+'"><div '+top+'><span class="tag">'+esc(catLbl(p.category||''))+'</span>'+hint+'</div>'
-      + '<div class="body"><h3>'+esc(p.title||'')+'</h3>'
+      + '<div class="body">'+titleHTML
       + specsLine(p)
       + (p.description?('<div class="desc">'+esc(p.description)+'</div>'):'')
+      + detailLink
       + '<div class="row"><div class="price">'+money2(p.price_cents)+'</div>'+btn+'</div></div></div>';
   }
 
