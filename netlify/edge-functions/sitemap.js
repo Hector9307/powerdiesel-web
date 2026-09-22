@@ -133,6 +133,10 @@ export default async () => {
     "<url><loc>https://powerdiesel.pro/es/reparacion-maquinaria-diesel-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
     "<url><loc>https://powerdiesel.pro/es/reparacion-transmision-camion-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
     "<url><loc>https://powerdiesel.pro/es/reparacion-embrague-camion-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/engine-mount-replacement-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/reemplazo-soportes-motor-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/diesel-cylinder-head-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/reparacion-cabeza-cilindros-diesel-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
     "<url><loc>https://powerdiesel.pro/es/reparacion-inyectores-diesel-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
     "<url><loc>https://powerdiesel.pro/es/reparacion-turbo-diesel-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
     "<url><loc>https://powerdiesel.pro/es/mantenimiento-preventivo-camiones-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
@@ -142,7 +146,25 @@ export default async () => {
     "<url><loc>https://powerdiesel.pro/es/reparacion-llantas-camion-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
     "<url><loc>https://powerdiesel.pro/es/diagnostico-diesel-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
     "<url><loc>https://powerdiesel.pro/es/programacion-ecm-tuning-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
-    "<url><loc>https://powerdiesel.pro/es/reparacion-reefer-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>";
+    "<url><loc>https://powerdiesel.pro/es/reparacion-reefer-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/best-cummins-mechanic-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/mejor-mecanico-cummins-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/best-detroit-diesel-mechanic-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/mejor-mecanico-detroit-diesel-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/best-dd15-mechanic-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/mejor-mecanico-dd15-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/best-volvo-mechanic-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/mejor-mecanico-volvo-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/best-mack-mechanic-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/mejor-mecanico-mack-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/best-freightliner-mechanic-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/mejor-mecanico-freightliner-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/best-paccar-mx13-mechanic-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/mejor-mecanico-paccar-mx13-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/best-diesel-mechanic-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/mejor-mecanico-diesel-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/best-diesel-repair-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>" +
+    "<url><loc>https://powerdiesel.pro/es/mejores-reparaciones-diesel-miami</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>";
   if (body.includes("</urlset>")) {
     body = body.replace("</urlset>", extra + "</urlset>");
   }
